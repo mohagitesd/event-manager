@@ -1,0 +1,13 @@
+{
+  "events": [
+    {
+      "id": 1,
+      "name": "React Conference",
+      "date": "2026-03-10",
+      "location": "Paris",
+      "description": "Conférence sur React",
+      "status": "upcoming",
+      "participants": []
+    }
+  ]
+}
