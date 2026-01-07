@@ -1,4 +1,4 @@
-import { Event } from "../types/event";
+import type { Event } from "../types/Event";
 
 const API_URL = "http://localhost:3001/events";
 

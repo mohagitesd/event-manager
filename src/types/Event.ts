@@ -1,4 +1,4 @@
-import { Participant } from "./Participant";
+import type { Participant } from "./Participant";
 
 export type EventStatus = "upcoming" | "ongoing" | "finished";
 

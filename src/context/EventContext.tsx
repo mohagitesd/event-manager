@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { Event } from "../types/Event";
+import type { Event } from "../types/Event";
 import { getEvents } from "../services/eventService";
 
 interface EventContextType {
