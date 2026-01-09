@@ -8,6 +8,24 @@
       "description": "Conférence sur React",
       "status": "upcoming",
       "participants": []
+    },
+    {
+      "id": 2,
+      "name": "Node.js Meetup",
+      "date": "2026-04-15",
+      "location": "Berlin",
+      "description": "Rencontre des développeurs Node.js",
+      "status": "upcoming",
+      "participants": []
+    },
+    {
+      "id": "8908",
+      "name": "Yafoooyyy",
+      "date": "2026-01-06",
+      "location": "Roxwood",
+      "description": "Hhihiher",
+      "status": "finished",
+      "participants": []
     }
   ]
 }

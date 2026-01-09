@@ -1,6 +1,7 @@
 import type { Event } from "../types/Event";
 
-const API_URL = "http://localhost:3001/events";
+// Use a relative path so the Vite dev server can proxy requests to the json-server backend
+const API_URL = "/events";
 
 export const getEvents = async (): Promise<Event[]> => {
   const res = await fetch(API_URL);
