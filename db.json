@@ -1,29 +1,38 @@
 {
   "events": [
     {
-      "id": 1,
-      "name": "React Conference",
-      "date": "2026-03-10",
-      "location": "Paris",
-      "description": "Conférence sur React",
-      "status": "upcoming",
-      "participants": []
-    },
-    {
-      "id": 2,
-      "name": "Node.js Meetup",
-      "date": "2026-04-15",
-      "location": "Berlin",
-      "description": "Rencontre des développeurs Node.js",
-      "status": "upcoming",
-      "participants": []
-    },
-    {
-      "id": "8908",
+      "id": "92f2",
       "name": "Yafoooyyy",
+      "date": "2026-01-30",
+      "location": "Samoa",
+      "description": "",
+      "status": "upcoming",
+      "participants": []
+    },
+    {
+      "id": "f074",
+      "name": "fgd",
       "date": "2026-01-06",
-      "location": "Roxwood",
-      "description": "Hhihiher",
+      "location": "berlin",
+      "description": "HIEUJKNCQMSDN",
+      "status": "upcoming",
+      "participants": []
+    },
+    {
+      "id": "87be",
+      "name": "ERGDDG",
+      "date": "2026-01-12",
+      "location": "TIJI",
+      "description": "SFVDF",
+      "status": "ongoing",
+      "participants": []
+    },
+    {
+      "id": "53e6",
+      "name": "sevfdv",
+      "date": "2026-01-07",
+      "location": "sefsf",
+      "description": "sfvfdsver",
       "status": "finished",
       "participants": []
     }

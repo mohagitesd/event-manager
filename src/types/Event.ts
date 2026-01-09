@@ -3,7 +3,7 @@ import type { Participant } from "./Participant";
 export type EventStatus = "upcoming" | "ongoing" | "finished";
 
 export interface Event {
-  id: number;
+  id: string;
   name: string;
   date: string;
   location: string;

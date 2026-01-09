@@ -10,7 +10,7 @@ export default function CreateEvent() {
     date: "",
     location: "",
     description: "",
-    status: "upcoming",
+    status: "upcoming" as EventStatus,
   });
 
   const handleChange = (
@@ -25,7 +25,7 @@ export default function CreateEvent() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    await fetch("http://localhost:3001/events", {
+    await fetch("/api/events", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

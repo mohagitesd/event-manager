@@ -6,10 +6,12 @@ export default defineConfig({
   server: {
     proxy: {
       // Proxy API requests during dev to avoid CORS issues with the json-server backend
-      "/events": {
+      "/api": {
         target: "http://localhost:3001",
         changeOrigin: true,
         secure: false,
+        // Strip leading /api so requests like /api/events -> /events on the json-server backend
+        rewrite: (path) => path.replace(/^\/api/, ""),
       },
     },
   },
