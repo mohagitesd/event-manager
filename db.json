@@ -3,11 +3,17 @@
     {
       "id": "92f2",
       "name": "Yafoooyyy",
-      "date": "2026-01-30",
+      "date": "2026-01-28",
       "location": "Samoa",
       "description": "",
       "status": "upcoming",
-      "participants": []
+      "participants": [
+        {
+          "id": 1767993986227,
+          "name": "Omar",
+          "email": ""
+        }
+      ]
     },
     {
       "id": "f074",
@@ -16,7 +22,13 @@
       "location": "berlin",
       "description": "HIEUJKNCQMSDN",
       "status": "upcoming",
-      "participants": []
+      "participants": [
+        {
+          "id": 1767995718130,
+          "name": "william",
+          "email": "pafman@mail.com"
+        }
+      ]
     },
     {
       "id": "87be",

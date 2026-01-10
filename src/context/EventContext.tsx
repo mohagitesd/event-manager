@@ -5,6 +5,9 @@ import { getEvents } from "../services/eventService";
 interface EventContextType {
   events: Event[];
   loading: boolean;
+  addEventLocal: (event: Event) => void;
+  updateEventLocal: (event: Event) => void;
+  removeEventLocal: (id: string) => void;
 }
 
 const EventContext = createContext<EventContextType | undefined>(undefined);
@@ -20,8 +23,24 @@ export const EventProvider = ({ children }: { children: React.ReactNode }) => {
     });
   }, []);
 
+  const addEventLocal = (event: Event) => setEvents((prev) => [...prev, event]);
+  const updateEventLocal = (updatedEvent: Event) =>
+    setEvents((prev) =>
+      prev.map((e) => (e.id === updatedEvent.id ? updatedEvent : e))
+    );
+  const removeEventLocal = (id: string) =>
+    setEvents((prev) => prev.filter((e) => e.id !== id));
+
   return (
-    <EventContext.Provider value={{ events, loading }}>
+    <EventContext.Provider
+      value={{
+        events,
+        loading,
+        addEventLocal,
+        updateEventLocal,
+        removeEventLocal,
+      }}
+    >
       {children}
     </EventContext.Provider>
   );

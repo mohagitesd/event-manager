@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useMemo } from "react";
 import { useEvents } from "../context/EventContext";
+import { STATUS_LABELS } from "../utils/status";
 
 export default function Stats() {
   const { events, loading } = useEvents();
@@ -82,13 +83,13 @@ export default function Stats() {
           <h2 className="text-xl font-semibold mb-4">Répartition par statut</h2>
           <div className="flex gap-4">
             <div className="badge badge-outline">
-              À venir: {eventsByStatus.upcoming}
+              {STATUS_LABELS.upcoming}: {eventsByStatus.upcoming}
             </div>
             <div className="badge badge-outline">
-              En cours: {eventsByStatus.ongoing}
+              {STATUS_LABELS.ongoing}: {eventsByStatus.ongoing}
             </div>
             <div className="badge badge-outline">
-              Terminés: {eventsByStatus.finished}
+              {STATUS_LABELS.finished}: {eventsByStatus.finished}
             </div>
           </div>
         </section>
