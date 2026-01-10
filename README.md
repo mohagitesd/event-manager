@@ -1,73 +1,88 @@
-# React + TypeScript + Vite
+# Event Manager — Guide d'installation et d'utilisation ✅
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Un petit projet React + TypeScript (Vite) qui utilise `json-server` comme backend de développement pour gérer des événements et leurs participants.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ⚙️ Prérequis
 
-## React Compiler
+- Node.js (>= 18 recommandé)
+- npm ou yarn (le projet utilise npm dans les exemples)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 📥 Installation
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+1. Cloner le dépôt et se placer dans le dossier :
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+git clone <repo-url>
+cd event-manager
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+2. Installer les dépendances :
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
 ```
+
+---
+
+## ▶️ Lancer le projet en développement
+
+Le frontend (Vite) et le faux backend (`json-server`) sont lancés séparément :
+
+- Démarrer le backend JSON (port 3001) :
+
+```bash
+npm run json-server
+```
+
+- Démarrer le serveur de dev Vite :
+
+```bash
+npm run dev
+```
+
+- Ouvrir l'app : http://localhost:5173 (ou l'URL fournie par Vite)
+
+> Le serveur Vite proxy les requêtes vers `/api` vers `http://localhost:3001` (config dans `vite.config.ts`).
+
+---
+
+## 📦 Scripts utiles (dans `package.json`)
+
+- `npm run dev` — démarre Vite (dev)
+- `npm run json-server` — démarre `json-server --watch db.json --port 3001`
+- `npm run build` — build de production
+- `npm run preview` — preview du build produit
+- `npm run lint` — lancer ESLint
+
+---
+
+## 🔌 API & conventions
+
+- Base API pour le frontend : `/api/events` (proxy vers `http://localhost:3001/events`)
+- Endpoints principaux (gérés par `json-server`) :
+  - `GET /events` — lister
+  - `GET /events/:id` — récupérer un événement
+  - `POST /events` — créer
+  - `PATCH /events/:id` — mise à jour (utilisé pour modifier l'événement et pour ajouter/supprimer des participants)
+  - `DELETE /events/:id` — supprimer
+
+---
+
+## 🧭 Fonctionnalités importantes
+
+- Création d'événements : UI `GET /events/create` (formulaire)
+- Détails d'un événement : `GET /events/:id` — possibilité d'ajouter/supprimer des participants et de modifier les champs via le bouton **Modifier**
+- Les statuts internes sont `"upcoming" | "ongoing" | "finished"`; ils sont affichés en français via `src/utils/status.ts` (`À venir`, `En cours`, `Terminés`).
+
+---
+
+## 📝 Types (TypeScript)
+
+- `Event.id` est un **string** (correspond aux ids générés dans `db.json`)
+- `Participant.id` est un **number**
+
+---
